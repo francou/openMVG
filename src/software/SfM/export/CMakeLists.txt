@@ -1,5 +1,6 @@
 ###
 # SfM export to X
+# - MicMac (and also Pastis only)
 # - PMVS + bundler data format
 # - OpenMVS
 # - CMPMVS
@@ -7,6 +8,27 @@
 # - Agisoft Photoscan
 # - MVE (File format v2)
 ###
+
+# - Export a SfM openMVG scene to MicMac
+#
+add_executable(openMVG_main_openMVG2MICMAC main_openMVG2MICMAC.cpp)
+target_link_libraries(openMVG_main_openMVG2MICMAC
+  openMVG_system
+  openMVG_image
+  openMVG_features
+  openMVG_sfm
+  stlplus
+)
+
+# - Export computed matches to Pastis (MicMac)
+#
+add_executable(openMVG_main_exportMatches2PASTIS main_exportMatches2PASTIS.cpp)
+target_link_libraries(openMVG_main_exportMatches2PASTIS
+  openMVG_system
+  openMVG_features
+  openMVG_sfm
+  stlplus
+)
 
 # - Export a SfM openMVG scene to PMVS format + bundler data format
 #
@@ -105,6 +127,10 @@ target_link_libraries( openMVG_main_openMVG2Colmap
   ${STLPLUS_LIBRARY} )
 
 # installation rules
+set_property(TARGET openMVG_main_openMVG2MICMAC PROPERTY FOLDER OpenMVG/software)
+install(TARGETS openMVG_main_openMVG2MICMAC DESTINATION bin/)
+set_property(TARGET openMVG_main_exportMatches2PASTIS PROPERTY FOLDER OpenMVG/software)
+install(TARGETS openMVG_main_exportMatches2PASTIS DESTINATION bin/)
 set_property(TARGET openMVG_main_openMVG2PMVS PROPERTY FOLDER OpenMVG/software)
 install(TARGETS openMVG_main_openMVG2PMVS DESTINATION bin/)
 set_property(TARGET openMVG_main_openMVG2openMVS PROPERTY FOLDER OpenMVG/software)
