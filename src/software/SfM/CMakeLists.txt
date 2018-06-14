@@ -79,7 +79,7 @@ target_link_libraries(openMVG_main_MatchesToTracks
     openMVG_image
     openMVG_features
     openMVG_sfm
-    stlplus
+    ${STLPLUS_LIBRARY}
 )
 
 # Installation rules
