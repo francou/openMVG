@@ -244,9 +244,10 @@ endif(OpenMVG_USE_OPENCV)
 ###
 add_executable(openMVG_main_evalQuality main_evalQuality.cpp)
 target_link_libraries(openMVG_main_evalQuality
-  openMVG_system
   openMVG_features
+  openMVG_image
   openMVG_sfm
+  openMVG_system
   ${STLPLUS_LIBRARY}
 )
 

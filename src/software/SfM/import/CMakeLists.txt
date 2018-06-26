@@ -10,11 +10,12 @@ add_executable(openMVG_main_SfMInit_ImageListingFromKnownPoses
 )
 target_link_libraries(openMVG_main_SfMInit_ImageListingFromKnownPoses
   PRIVATE
-    openMVG_system
-    openMVG_image
-    openMVG_features
-    openMVG_sfm
     openMVG_easyexif
+    openMVG_features
+    openMVG_image
+    openMVG_sfm
+    openMVG_system
+    ${STLPLUS_LIBRARY}
 )
 
 # Installation rules
