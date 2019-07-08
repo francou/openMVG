@@ -46,3 +46,7 @@ build:
 
 test_script:
   - ctest -C %configuration% -V
+
+on_success:
+  - cmd: 7z a OpenMVG.7z "c:\dev\openMVG\openMVG_build"
+  - cmd: appveyor PushArtifact OpenMVG.7z
